@@ -43,8 +43,8 @@ pipeline {
         steps {
             appCenter apiToken: APPCENTER_API_TOKEN,
                     ownerName: 'emmanuel ogah',
-                    appName: '',andriod-app-cicd
-                    pathToApp: '**/*.apk',
+                    appName: 'andriod-app-cicd',
+                    pathToApp: '**/${APP_NAME}-${BUILD_TYPE}.apk',
                     distributionGroups: 'emmanuel ogah'
         }
     }

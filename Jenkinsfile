@@ -13,9 +13,9 @@ pipeline {
         steps {
             echo "Detect the build branch..."
             script {
-            if (env.BRANCH_NAME == 'develop' || env.CHANGE_TARGET == 'develop') {
+            if (env.BRANCH_NAME == 'master' || env.CHANGE_TARGET == 'master') {
                 env.BUILD_TYPE = 'debug'
-            } else if (env.BRANCH_NAME == 'master' || env.CHANGE_TARGET == 'master') {
+            } else if (env.BRANCH_NAME == 'feature-CICD' || env.CHANGE_TARGET == 'feature-CICD') {
                 env.BUILD_TYPE = 'release'
             }
         }

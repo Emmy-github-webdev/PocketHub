@@ -12,16 +12,18 @@ pipeline {
   }
 
   stages {
-    stage("Detect build type"){
-        steps {
-            echo "Detect the build branch..."
-            script {
-            if (env.BRANCH_NAME == 'master' || env.CHANGE_TARGET == 'master') {
-                env.BUILD_TYPE = 'debug'
-            } else if (env.BRANCH_NAME == 'feature-CICD' || env.CHANGE_TARGET == 'feature-CICD') {
-                env.BUILD_TYPE = 'release'
-            }
+    
+    stage('Detect build type') {
+    steps {
+        echo "Detect the build branch..."
+        script {
+        if (env.BRANCH_NAME == 'master' || env.CHANGE_TARGET == 'master') {
+            env.BUILD_TYPE = 'debug'
+        } else if (env.BRANCH_NAME == 'feature-CICD' || env.CHANGE_TARGET == 'feature-CICD') {
+            env.BUILD_TYPE = 'release'
         }
+        }
+    }
     }
 
     stage('Compile') {
@@ -51,6 +53,6 @@ pipeline {
                     distributionGroups: 'emmanuel ogah'
         }
     }
-    
+
   }
 }

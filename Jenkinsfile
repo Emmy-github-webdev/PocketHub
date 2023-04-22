@@ -2,14 +2,9 @@ pipeline {
 
   agent any
 
-  environment {
-    APP_NAME = 'andriodDemo'
-  }
-
-  options {
-    // Stop the build early in case of compile or test failures
-    skipStagesAfterUnstable()
-  }
+//   environment {
+//     APP_NAME = 'andriodDemo'
+//   }
 
   stages {
     stage("Detect build type"){
